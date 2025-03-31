@@ -810,3 +810,11 @@
 &iep_mmu {
 	status = "okay";
 };
+
+&vpu {
+	status = "okay";
+};
+
+&vpu_mmu {
+	status = "okay";
+};
