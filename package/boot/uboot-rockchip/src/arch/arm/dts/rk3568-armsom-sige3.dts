@@ -21,6 +21,11 @@
 		mmc0 = &sdhci;
 		mmc1 = &sdmmc0;
 		mmc2 = &sdmmc1;
+
+		led-boot = &led_status_red;
+		led-failsafe = &led_status_red;
+		led-running = &led_status_red;
+		led-upgrade = &led_status_red;
 	};
 
 	chosen: chosen {
@@ -551,11 +556,25 @@
 		reg = <0>;
 		pinctrl-0 = <&eth_phy_reset_pin>;
 		pinctrl-names = "default";
+		realtek,led-data = <0x2c1b>;
 	};
 };
 
 &pcie2x1 {
 	status = "okay";
+
+	pcie@0,0 {
+		reg = <0x00000000 0 0 0 0>;
+		#address-cells = <3>;
+		#size-cells = <2>;
+
+		rtl8125: pcie@1,0 {
+			compatible = "pci10ec,8125";
+			reg = <0x000000 0 0 0 0>;
+
+			realtek,led-data = <0x200 0x2b 0x0 0x0>;
+		};
+	};
 };
 
 &pcie30phy {

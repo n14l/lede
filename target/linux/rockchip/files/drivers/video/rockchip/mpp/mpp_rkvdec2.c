@@ -1965,10 +1965,6 @@ static int rkvdec2_probe_default(struct platform_device *pdev)
 		return -EINVAL;
 	}
 
-	/* power domain autosuspend delay 2s */
-	pm_runtime_set_autosuspend_delay(dev, 2000);
-	pm_runtime_use_autosuspend(dev);
-
 	mpp->session_max_buffers = RKVDEC_SESSION_MAX_BUFFERS;
 	rkvdec2_procfs_init(mpp);
 	if (dec->link_dec && (mpp->task_capacity > 1))

@@ -6,7 +6,7 @@
 #include <dt-bindings/pwm/pwm.h>
 #include <dt-bindings/input/input.h>
 #include "rk3399.dtsi"
-#include "rk3399-op1-opp.dtsi"
+#include "rk3399-opp.dtsi"
 
 
 / {
@@ -166,6 +166,11 @@
 		};
 	};
 
+};
+
+&power {
+    status = "okay";
+    #power-domain-cells = <1>;
 };
 
 &cpu_l0 {
@@ -807,11 +812,35 @@
 	status = "okay";
 };
 
+&iep {
+	status = "okay";
+};
+
 &iep_mmu {
 	status = "okay";
 };
 
-&vpu {
+&mpp_srv {
+	status = "okay";
+};
+
+&rga {
+	status = "okay";
+};
+
+&rkvdec {
+	status = "okay";
+};
+
+&vdec_mmu {
+    status = "okay";
+};
+
+&vdpu {
+	status = "okay";
+};
+
+&vepu {
 	status = "okay";
 };
 
